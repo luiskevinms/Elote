@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from entities.palindrome import Palindrome
 
 app = Flask(__name__)
 
@@ -14,6 +15,18 @@ def math():
 @app.route('/azulejos')
 def azulejos():
     return render_template('azulejos.html')
+
+@app.route('/palindrome', methods=['GET', 'POST'])
+def palindrome():
+    if request.method == 'POST':
+        phrase = request.form.get('input-phrase', '')
+
+        p = Palindrome(phrase)
+        result = p.is_palindrome()
+        return render_template('result.html', resultado = result)
+
+
+    return render_template('palindrome.html')
 
 
 if __name__ == '__main__':
