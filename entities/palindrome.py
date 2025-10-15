@@ -9,7 +9,11 @@ class Palindrome:
         #Si es palindromo retorno True
         #Y si no, retorna False
 
-        if p == "palíndromo":
-            return True
-        else:
-            return False
+        frase = p.replace(" ", "").lower()
+
+        for i in range(len(frase)):
+                       
+            if frase[i] != frase[len(frase) - 1 - i]:
+                return False
+        
+        return True
