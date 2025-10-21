@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from entities.palindrome import Palindrome
 from entities.money import Money
+from entities.animal import Animal
 
 app = Flask(__name__)
 
@@ -39,6 +40,10 @@ def money():
     
     return render_template('money.html')
 
+@app.route('/animals')
+def animals():
+    return render_template('animals.html', animals = Animal.get_list())
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5149)
+    app.run(host='0.0.0.0',port=5090)
