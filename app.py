@@ -2,6 +2,9 @@ from flask import Flask, render_template, request
 from entities.palindrome import Palindrome
 from entities.money import Money
 from entities.animal import Animal
+import random
+
+from entities.suerte import Suerte
 
 app = Flask(__name__)
 
@@ -43,6 +46,18 @@ def money():
 @app.route('/animals')
 def animals():
     return render_template('animals.html', animals = Animal.get_list())
+
+@app.route('/suerte', methods=['GET', 'POST'])
+def suerte():
+    if request.method == 'POST':
+        numero = request.form.get('input-value1', '0')
+        numero2 = request.form.get('input-value2', '0')
+        numero3 = request.form.get('input-value3', '0')
+        n = Suerte(numero, numero2, numero3)
+        result = n.is_onetohundred()
+        return render_template('resultsuerte.html', resultado = result)  
+    return render_template('suerte.html')
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,26 @@
+{% include 'header.html' %}
+
+<main>
+            <div>
+                <form method=post action="/suerte">
+
+                <p>Bienvenido al sorteo de la suerte, Escribe tres números del 1 al 100 y si uno coincide con el nuestro ganas</p>
+                <p>Escribe el primer número </p>
+                <input id="input-phrase" name="input-value1" class="input-welcome" type="number" placeholder="Escribe un numero">
+
+                <p>Escribe el segundo número </p>
+                <input id="input-phrase" name="input-value2" class="input-welcome" type="number" placeholder="Escribe un numero">
+
+
+                <p>Escribe el tercer número </p>
+                <input id="input-phrase" name="input-value3" class="input-welcome" type="number" placeholder="Escribe un numero">
+                <button class="button-ok" type="submit">Aceptar</button>
+                
+
+                </form>
+                
+            </div>
+        </main>
+
+
+{% include 'footer.html' %}
